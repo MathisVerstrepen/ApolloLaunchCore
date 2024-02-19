@@ -1,0 +1,6 @@
+Flask==2.1.1
+Werkzeug==2.2.2
+jsonschema
+Protobuf==3.14.0
+grpcio-tools==1.33.2
+discord-webhook

@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  apollo-launch:
+    container_name: ApolloLaunch
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8081:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../src/main.py:/app/main.py"
+      - "../src/docker_utils.py:/app/docker_utils.py"
+      - "../src/git_utils.py:/app/git_utils.py"
+      - "../src/utils.py:/app/utils.py"
+      - "../env:/app/env"
+    environment:
+      - DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}
+      - DOCKER_REGISTRY_TOKEN=${DOCKER_REGISTRY_TOKEN}
+      - DOCKER_REGISTRY_URL=${DOCKER_REGISTRY_URL}
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - CLONE_DIR=/tmp/repo_clone
