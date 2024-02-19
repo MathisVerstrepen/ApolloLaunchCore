@@ -97,6 +97,8 @@ def handle_repository_deploiement(payload: dict) -> dict:
         t1 = time.time()
         image_name = f"{DOCKER_REGISTRY_URL}/{IMAGE_NAME}:{IMAGE_TAG}"
         image_details = DOCKER_SERVICE.get_image_details(image_name)
+        
+        os.chdir("/app")
 
         deployment_details = {
             "status": "OK",
