@@ -22,6 +22,7 @@ CLONE_DIR = os.environ["CLONE_DIR"]
 HOSTS = {
     "hogwarts-1": "192.168.2.51",
     "hogwarts-2": "192.168.2.64",
+    "hogwarts-3": "65.109.65.105",
 }
 
 
